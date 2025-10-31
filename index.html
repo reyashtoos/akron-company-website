@@ -1,170 +1,238 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/x-icon" href="favicon.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The AKRON Company</title>
+  <title>JOIN THE RESISTANCE</title>
   <style>
-    html,body {
-      height: 100%;
-      margin: 0;
-      background: #000;
-      color: #fff;
-      font-family: "Times New Roman", Times, serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    :root {
+      --bg:#000;
+      --muted:#bfbfbf;
+      --accent:#c62828;
+      --accent-dark:#8e1a1a;
+      --card-bg: rgba(255,255,255,0.04);
+      --max-width:1100px;
     }
 
-    .wrap {
-      min-height: 100%;
+    html,body {
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:#fff;
+      font-family: "Times New Roman", Times, serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #000;
+      text-align: center;
+      padding: 20px 0;
+      z-index: 10;
+    }
+
+    header img {
+      max-width: 300px;
+      height: auto;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    main {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      text-align: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 220px 24px 80px; /* space for header */
       box-sizing: border-box;
     }
 
-    .card {
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 0;
+    }
+
+    .hero-left h1 {
+      margin: 0 0 8px 0;
+      font-size: 48px;
+      letter-spacing: 0.6px;
+      line-height: 1.02;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 22px;
+    }
+
+    .kpis {
+      display: flex;
+      gap: 12px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .kpi {
+      background: var(--card-bg);
+      padding: 12px 14px;
+      border-radius: 8px;
+      min-width: 120px;
       text-align: center;
     }
 
-    h1 {
-      margin: 0 0 18px 0;
-      font-size: clamp(18px, 4vw, 36px);
-      font-weight: 600;
-      letter-spacing: 0.02em;
+    .kpi b {
+      display: block;
+      font-size: 20px;
+      color: #fff;
     }
 
-    .timer {
+    section {
+      padding: 34px 0;
+      border-top: 1px solid rgba(255,255,255,0.03);
+      width: 100%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.03);
+      max-width: 300px;
+    }
+
+    .card h4 { margin: 0 0 10px 0; }
+    .small { color: var(--muted); font-size: 14px; }
+
+    footer {
+      padding: 22px 0 46px 0;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid rgba(255,255,255,0.03);
+      text-align: center;
+      width: 100%;
+    }
+
+    @media (max-width:480px){
+      .hero-left h1 { font-size: 34px; }
+      header { padding: 8px 0; }
+    }
+
+    #issues .grid {
       display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;  
+      gap: 20px;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 16px; 
     }
 
-    .segment {
-      min-width: 72px;
-      padding: 14px 18px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.04);
-      box-shadow: 0 2px 8px rgba(255,255,255,0.02) inset;
+    #issues .card {
+      width: 100%;
+      max-width: 1000px; 
+      margin: 0;        
     }
 
-    .value {
-      font-size: clamp(20px, 6vw, 56px);
-      font-weight: 700;
-      line-height: 1;
-    }
 
-    .label {
-      margin-top: 6px;
-      font-size: clamp(10px, 2.8vw, 14px);
-      text-transform: uppercase;
-      opacity: 0.85;
-      letter-spacing: 0.08em;
-    }
-
-    /* Small accessibility hint */
-    .note {
-      margin-top: 18px;
-      font-size: 12px;
-      opacity: 0.8;
-    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card" role="region" aria-live="polite" aria-label="Countdown to October 31">
-      <img src="AKRON LIES.png" alt="AKRON LIES" class="header-img" />
+  <header>
+    <img src="AKRON Logo.png" alt="AKRON Logo">
+  </header>
 
-      <div class="timer" id="timer" aria-hidden="false">
-        <div class="segment" aria-hidden="true">
-          <div class="value" id="days">0</div>
-          <div class="label">Days</div>
+  <main>
+    <section class="hero" aria-labelledby="campaign-title">
+      <div class="hero-left">
+        <h1 id="campaign-title">They're lying to you.</h1>
+        <div class="tagline">They're not here for the betterment of humanity. They're here to destroy it and control what's not rightfully theirs.</div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title" style="margin-top:0;">THE AMERICAN DREAM</h2>
+      <div class="grid">
+        <div class="card">
+          <h4>Their Past</h4>
+          <img src="shaking hands.jpg" alt="Unknown businessmen shaking hands circa 1984." style="width:200px;height:auto;">
+          <p class="small">The AKRON Company was founded on the backs of the American people in 1984, and from the start has done nothing but pave the road with the dried corpses of the impoverished, down-on-their-luck individuals who walk in their front door, hoping to exchange some of their time for a microscopically small fraction of the fortune they've amassed since they opened their doors.<br><br> They've been using these individuals as test subjects for their experiments in conjunction with the U.S. military since their first collaboration in 1986 to develop the first biomechanical arm designed for ground combat soldiers. They achieved this by contacting disabled army veterans who fought in the Vietnam War during the fall of Saigon in 1975, and inviting them to once again contribute to their country in anticipation of escalation of a possible war with the Soviet Union before it's collapse in 1991, with promises of a large payout and governmental protection for their families in the case of a nuclear fallout. Sadly, these families would never receive their deserved payout, and would often never see their loved one again.<br><br>
+AKRON has done nothing but lie to the vulnerable, helpless, and desperate people of this country since the very beginning, yet no one sees or hears about it due to their bottomless pockets and litany of lawyers at their disposal.</p>
         </div>
-        <div class="segment" aria-hidden="true">
-          <div class="value" id="hours">00</div>
-          <div class="label">Hours</div>
+        <div class="card">
+          <h4>Their Present</h4>
+          <img src="carterisacriminal.png" alt="Jimmy Carter is a criminal, stealing from the American People." style="width:300px;height:auto;">
+          <p class="small">AKRON has accomplished to many what could be considered "great contributions to medical science" and is in the highest regards of the American populus, and government. They have everyone eating out of the palms of their hands and portray them selves as the almighty benefactor, meanwhile they reach into the back pocket of everyone in this country and don't pull out until they have every last cent that you won't notice.<br><br>
+Ever since the latter half of the Carter Administration in the late 80's, AKRON has had close ties with the American Government, often being included in many foreign trade deals as undisclosed advisors to control the price of important goods flowing into the country, so they can purchase supply at the lowest price possible.<br><br>
+One such case was in 2015 when former Governor Andrew Cuomo met with the President of Cuba to discuss the thawing relations between them and the United States. Attending the meeting was an AKRON advisor who's presence was hidden from the public. In a photodump uploaded to the WikiLeaks forums, there exists evidence showing another individual on the plane with Cuomo, as well as pictures showing that same individual exiting the private plane at the José Martí International Airport in Havana, Cuba.<br><br>
+Details regarding this meeting are further explained below.<br><br>
+AKRON is meddling with the very structure of our foreign and domestic markets, influencing governmental positions of power to contribute to their monopoly and further control their hold over the people you care about. It's time you see.
+</p>
         </div>
-        <div class="segment" aria-hidden="true">
-          <div class="value" id="minutes">00</div>
-          <div class="label">Minutes</div>
-        </div>
-        <div class="segment" aria-hidden="true">
-          <div class="value" id="seconds">00</div>
-          <div class="label">Seconds</div>
+        <div class="card">
+          <h4>Our Future</h4>
+          <img src="preswalz.png" alt="President Walz circa mid 2025." style="width:225px;height:auto;">
+          <p class="small">I fear for the future of the American People. Given how quickly this company has risen to power, it's not too far out of the realm to say that within the next 20 years, they'll exist in every corner of the country if not the world. The people everywhere are blind to the criminalities hidden behind closed doors. They promise sums of money to own the ones you love, and threaten them if they choose to disobey. If we do not stand up now, they'll continue to buy and massacre their way through the levels of government until the United States becomes a full corporate oligarchy with the highest level of control over every subsystem in the country including nuclear weapons and manufacturing.<br><br>
+
+U.S. President Tim Walz announced in late 2025 that he's considering AKRON's CTO, James Reville, as the 26th US Secretary of Health and Human Services with widespread approval of this decision by the general population. If this happens, this will set off a chain reaction within the government allowing for the company to weasle their way into Congress and influence decisions of the President directly affecting the American people, and having little to no resistance due to their appearance.<br><br>
+
+We're in danger of losing our democratic freedoms, and there's no one that can slow down this corruption except for the people watching in front of a smartphone screen. Join our resistance, and fight for your right to choose because soon, you may not have one. </p>
         </div>
       </div>
+    </section>
 
-      <div class="note" id="note">
-        Times are changing soon.
+    <section id="issues" aria-labelledby="issues-title">
+      <h2 id="issues-title">REMEMBER, REMEMBER</h2>
+      <div class="grid">
+        <div class="card">
+          <h4>The Cuomo Case</h4>
+          <img src="cuomoandcastro.jpg" alt="Former Governor Andrew Cuomo and Raúl Castro circa 2015." style="width:400px;height:auto;">
+          <p class="small">In 2015, the acting governor of New York, Andrew Cuomo had a formal visit with Cuban President Raúl Castro for the first time since relations between the US and Cuba had started to thaw. When discussing trade negotiations and the higher price at which oil, raw metals, and medical supplies were going to be exported to New York, the conversation was cut short by an unnamed “advisor” who was on the plane with Cuomo. The three individuals then engaged in an 11 minute and 42 second conversation, all of which has been redacted in any official transcripts.<br><br>
+
+The final length of the conversation ended with the President of Cuba agreeing to a lower export price to New York, with promises of higher export quantity and quality. When discussing the trade negotiations in an interview later that week , Cuomo was asked about the 11 and a half minute bureaucratic black-hole in the transcript, as well as the unnamed advisor who attended the meeting. When the interviewer brought up the advisor, Cuomo acted distraught, and suddenly apprehensive to answer the question.<br><br>
+
+After some back and forth between Governor Cuomo and the interviewer, Cuomo says “I have no idea who you’re talking about, there was no ‘Thomas’ on the plane with me to Cuba.” In the audio tape, the interviewer states “I haven’t mentioned anyone named Thomas, sir.” and suddenly, the tape cuts. The individual being discussed, I found out to be a man by the name of Thomas Black, who had been employed by AKRON as a “Public Relations Advisor” for almost 4 years at the time of the interview. <br><br>
+
+Shortly after the interview, Governor Cuomo was sent to the hospital in critical condition during a supposed car accident, and has since made a full recovery. Sadly, the same can’t be said for the other two involved. The AKRON advisor, Thomas, was reported missing a week later and is presumed dead according to local authorities, and no investigation has been conducted in an attempt to connect him to the meeting. The interviewer, known locally as Brandon Pierce, was last seen in his home town of Rochester, NY at the edge of the roof of the Xerox building (now “Innovation Square”) in the middle of the city. After pedestrians noticed him on the ledge, a crowd amassed urging people to call 911. He then shouted “I am a fraud! My existence is amounted to the lies I spread to the public, and the lives I’ve destroyed due to my fabrications! Vixi, mentitus sum, et solvam! (I have lived, I have lied, and I shall pay.)” and plunged to his death on May 10, 2015.<br><br>
+
+They are manipulating the lives of those in positions of power to change the outcome for their own benefit. AKRON’s entire business runs off of the oil, metals, and medical goods supplied from countries worldwide. Cuba is one of the lowest goods exporters to the US compared to other countries such as Mexico and Canada, but the moment that a trade deal is discussed that would raise the price of the goods needed to run AKRON’s business, suddenly all conversation ceases and Cuba gives in? Not to mention that a month later, one of AKRON’s PR advisors goes missing, and the interviewer commits public suicide claiming that he’s a fraud?<br><br> START ASKING THE QUESTIONS PEOPLE IN POWER ARE TOO AFRAID TO ASK </p>
+        </div>
+        <h2 id="issues-title">WHAT COMES NEXT??</h2>
+        <div class="card">
+          <h4>Join the Resistance</h4>
+          <p class="small">The only way we can make a change is by showing the world what our highest powers are too afraid to admit. You can be a part of the alarm that will finally wake people up to see the truth. It's all happening in front of our eyes, but we all just stop and stare. Living to see the future is something we can only do if we stop what is quickly becoming a corporate oligarchy.<br><br>
+
+To send our first message, we're holding a rally at the Xerox building entrance in Rochester, New York, on May 10th, 2026 at 12pm ET. The same place that Brandon Pierce was forever silenced, will be the place where we make ourselves heard. Bring your voice.</p>
+          <img src="innovationsquare.jpg" alt="Where Brandon was silenced." style="width:600px;height:auto;"
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="ReiceRichterWHT.png" alt="Resistance Logo.png" style="width:150px;height:auto;"><br>
+    I am Reice Richter. I am your soothsayer. Do what you will.
+  </footer>
 
   <script>
-    // Returns a target Date object for Oct 31 at 00:00:00 local time.
-    function getNextOct31Midnight() {
-      const now = new Date();
-      const year = now.getFullYear();
-      // Note: months are 0-indexed in JS Date (Oct = 9)
-      let target = new Date(year, 9, 31, 0, 0, 0, 0);
-
-      // If we've already passed or are exactly at Oct 31 00:00 this year, use next year
-      if (now >= target) {
-        target = new Date(year + 1, 9, 31, 0, 0, 0, 0);
-      }
-      return target;
-    }
-
-    // Pad numbers to at least 2 digits
-    function pad(v) {
-      return String(v).padStart(2, '0');
-    }
-
-    // Update DOM with remaining time
-    function updateCountdown() {
-      const now = new Date();
-      const diff = target - now; // milliseconds
-
-      if (diff <= 0) {
-        // Reached target — show zeros and stop timer
-        document.getElementById('days').textContent = '0';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        clearInterval(intervalId);
-        // Optionally update heading
-        document.querySelector('h1').textContent = 'It is October 31 — Midnight!';
-        return;
-      }
-
-      const totalSeconds = Math.floor(diff / 1000);
-      const seconds = totalSeconds % 60;
-      const totalMinutes = Math.floor(totalSeconds / 60);
-      const minutes = totalMinutes % 60;
-      const totalHours = Math.floor(totalMinutes / 60);
-      const hours = totalHours % 24;
-      const days = Math.floor(totalHours / 24);
-
-      document.getElementById('days').textContent = days;
-      document.getElementById('hours').textContent = pad(hours);
-      document.getElementById('minutes').textContent = pad(minutes);
-      document.getElementById('seconds').textContent = pad(seconds);
-    }
-
-    // Initialize
-    const target = getNextOct31Midnight();
-    updateCountdown();
-    const intervalId = setInterval(updateCountdown, 1000);
+    document.getElementById('year').textContent = new Date().getFullYear() + 1;
   </script>
-  <audio autoplay loop>
-    <source src="1905 Metal Disc Music Box_ Lullaby Waltz.mp3" type="audio/mpeg">
-  </audio>
 </body>
 </html>
-
-
-
-
