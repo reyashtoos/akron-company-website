@@ -1,170 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/x-icon" href="favicon.png">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The AKRON Company</title>
-  <style>
-    html,body {
-      height: 100%;
-      margin: 0;
-      background: #000;
-      color: #fff;
-      font-family: "Times New Roman", Times, serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <title>CASEY AT THE BAT</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: #000;
+            color: #fff;
+            font-family: "Times New Roman", Times, serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-    .wrap {
-      min-height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      box-sizing: border-box;
-    }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #000;
+            text-align: center;
+            padding: 20px 0;
+            z-index: 10;
+        }
 
-    .card {
-      text-align: center;
-    }
+        header img {
+            max-width: 300px;
+            height: auto;
+        }
 
-    h1 {
-      margin: 0 0 18px 0;
-      font-size: clamp(18px, 4vw, 36px);
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
+        .content {
+            margin-top: 220px; /* creates space below the fixed logo */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 24px 50px;
+            box-sizing: border-box;
+            text-align: center;
+        }
 
-    .timer {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .segment {
-      min-width: 72px;
-      padding: 14px 18px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.04);
-      box-shadow: 0 2px 8px rgba(255,255,255,0.02) inset;
-    }
-
-    .value {
-      font-size: clamp(20px, 6vw, 56px);
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .label {
-      margin-top: 6px;
-      font-size: clamp(10px, 2.8vw, 14px);
-      text-transform: uppercase;
-      opacity: 0.85;
-      letter-spacing: 0.08em;
-    }
-
-    /* Small accessibility hint */
-    .note {
-      margin-top: 18px;
-      font-size: 12px;
-      opacity: 0.8;
-    }
-  </style>
+        p {
+            max-width: 800px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card" role="region" aria-live="polite" aria-label="Countdown to October 31">
-      <img src="AKRON LIES.png" alt="AKRON LIES" class="header-img" />
+    <header>
+        <img src="AKRON Logo.png" alt="AKRON Logo">
+    </header>
 
-      <div class="timer" id="timer" aria-hidden="false">
-        <div class="segment" aria-hidden="true">
-          <div class="value" id="days">0</div>
-          <div class="label">Days</div>
-        </div>
-        <div class="segment" aria-hidden="true">
-          <div class="value" id="hours">00</div>
-          <div class="label">Hours</div>
-        </div>
-        <div class="segment" aria-hidden="true">
-          <div class="value" id="minutes">00</div>
-          <div class="label">Minutes</div>
-        </div>
-        <div class="segment" aria-hidden="true">
-          <div class="value" id="seconds">00</div>
-          <div class="label">Seconds</div>
-        </div>
-      </div>
-
-      <div class="note" id="note">
-        Times are changing soon.
-      </div>
+    <div class="content">
+        <p>The outlook wasn't brilliant for the Mudville nine that day;
+The score stood four to two, with but one inning more to play,
+And then when Cooney died at first, and <span style="color: red;">B</span>arrows did the same,
+A pall-lik<span style="color: red;">e</span> silence fe<span style="color: red;">ll</span> upon the patron<span style="color: red;">s</span> of the game.</p>
+        <p>A straggling few got up to go in deep despair. The rest
+Clung to that hope which springs eternal in the human breast;
+They thought, "If only Casey could but get a whack at that—
+We'd put up even money now, with <span style="color: red;">Casey at the bat.</span>"</p>
+        <p><span style="color: red;">B</span>ut Flynn preceded C<span style="color: red;">ase</span>y, as did also Jimmy Blake,
+And the former was a hoodoo, while the latter was a cake;
+So upon that stricken multitude grim melancholy sat,
+For there seemed <span style="color: red;">b</span>ut little ch<span style="color: red;">a</span>nce of Casey getting to the bat.</p>
+        <p>But Flynn let drive a single, to the wonderment of a<span style="color: red;">ll</span>,
+And Blake, the much despised, tore the cover off the ball;
+And when the dust had lifted, and men saw what had occurred,
+There was Jimmy safe at second and <span style="color: red;">F</span>lynn a-hugging th<span style="color: red;">i</span>rd.</p>
+        <p>Th<span style="color: red;">e</span>n from five thousand threats and more there rose a <span style="color: red;">l</span>usty yell;
+It rumble<span style="color: red;">d</span> through the valley, it rattled in the dell;
+It pounded on the mountain and recoiled upon the flat, 
+For Casey, mighty Casey, was advancing to the bat.</p>
+        <p>There was ease in Casey's manner as he stepped into his place;
+There was pride in Casey's bearing and a smile lit Casey's face.
+And when, responding to the cheers, he lightly doffed his hat,
+No stranger in the crowd could doubt 'twas <span style="color: red;">Casey at the bat.</span></p>
+        <p>Ten thousand eyes were on him as he rubbed his hands with dirt;
+Five thousand tongues applauded when he wiped them on his shirt;
+Then while the writhing pitcher ground the ball into his hip,
+Defiance flashed in Casey's eye, a sneer curled Casey's lip.</p>
+        <p>And now the leather-covered sphere came hurtling through the air,
+And Casey stood a-watching it in haughty grandeur there.
+Close by the sturdy batsman the ball unheeded sped—
+"That ain't my style," said Casey. "Strike one!" the umpire said.</p>
+        <p>From the benches, black with people, there went up a muffled roar,
+Like the beating of the storm-waves on a stern and distant shore;
+"Kill him! Kill the umpire!" shouted some one on the stand;
+And it's likely they'd have killed him had not Casey raised his hand.</p>
+        <p>With a smile of Christian charity great Casey's visage shone;
+He stilled the rising tumult; he bade the game go on;
+He signaled to the pitcher, and once more the dun sphere flew;
+But Casey still ignored it, and the umpire said, "Strike two!"</p>
+        <p>"Fraud!" cried the maddened thousands, and echo answered "Fraud!"
+But one scornful look from Casey and the audience was awed.
+They saw his face grow stern and cold, they saw his muscles strain,
+And they knew that Casey wouldn't let that ball go by again.</p>
+        <p>The sneer has fled from Casey's lip, his teeth are clenched in hate;
+He pounds with cruel violence his bat upon the plate.
+And now the pitcher holds the ball, and now he lets it go.
+And now the air is shattered by the force of Casey's blow.</p>
+        <p>Oh, somewhere in this favored land the sun is shining bright;
+The band is playing somewhere, and somewhere hearts are light,
+And somewhere men are laughing, and little children shout;
+But there is no joy in Mudville—great Casey has struck out.</p>
+        <h2>LOOK UP AND YOU'LL SEE THE LIGHT.</h2><br><br>
+        <h2>LOOK OUT WHERE BASEBALLS TAKE FLIGHT.</h2><br><br>
+        <h2>WHERE THE POWER SITS,</h2><br><br>
+        <h2>YOU'LL FIND THE GIFT,</h2><br><br>
+        <h2>THAT GIVES THE BLIND THEIR SIGHT.</h2><br><br><br><br>
+        <h1>COME AND FIND IT.</h1><br><br>
     </div>
-  </div>
-
-  <script>
-    // Returns a target Date object for Oct 31 at 00:00:00 local time.
-    function getNextOct31Midnight() {
-      const now = new Date();
-      const year = now.getFullYear();
-      // Note: months are 0-indexed in JS Date (Oct = 9)
-      let target = new Date(year, 9, 31, 0, 0, 0, 0);
-
-      // If we've already passed or are exactly at Oct 31 00:00 this year, use next year
-      if (now >= target) {
-        target = new Date(year + 1, 9, 31, 0, 0, 0, 0);
-      }
-      return target;
-    }
-
-    // Pad numbers to at least 2 digits
-    function pad(v) {
-      return String(v).padStart(2, '0');
-    }
-
-    // Update DOM with remaining time
-    function updateCountdown() {
-      const now = new Date();
-      const diff = target - now; // milliseconds
-
-      if (diff <= 0) {
-        // Reached target — show zeros and stop timer
-        document.getElementById('days').textContent = '0';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        clearInterval(intervalId);
-        // Optionally update heading
-        document.querySelector('h1').textContent = 'It is October 31 — Midnight!';
-        return;
-      }
-
-      const totalSeconds = Math.floor(diff / 1000);
-      const seconds = totalSeconds % 60;
-      const totalMinutes = Math.floor(totalSeconds / 60);
-      const minutes = totalMinutes % 60;
-      const totalHours = Math.floor(totalMinutes / 60);
-      const hours = totalHours % 24;
-      const days = Math.floor(totalHours / 24);
-
-      document.getElementById('days').textContent = days;
-      document.getElementById('hours').textContent = pad(hours);
-      document.getElementById('minutes').textContent = pad(minutes);
-      document.getElementById('seconds').textContent = pad(seconds);
-    }
-
-    // Initialize
-    const target = getNextOct31Midnight();
-    updateCountdown();
-    const intervalId = setInterval(updateCountdown, 1000);
-  </script>
-  <audio autoplay loop>
-    <source src="1905 Metal Disc Music Box_ Lullaby Waltz.mp3" type="audio/mpeg">
-  </audio>
 </body>
 </html>
-
-
-
-
